@@ -1,8 +1,11 @@
 <template>
-  <div class="bg-[#202C37] px-20 w-full">
-    <SearchBar />
-    <Filter />
-    <Countries />
+  <div class="dark:bg-[#202C37] px-20 w-full">
+    <div class="flex justify-between">
+      <SearchBar />
+      <Filter />
+    </div>
+
+    <Countries class="grid grid-cols-4" />
   </div>
 </template>
 

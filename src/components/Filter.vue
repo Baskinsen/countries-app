@@ -1,18 +1,24 @@
 <template>
-  <div>
-    <div @click="toggle" class="text-white p-[10px] shadow-md cursor-pointer">
+  <div class="grid gap-2">
+    <div
+      @click="toggle"
+      class="dark:text-white p-[10px] shadow-md cursor-pointer dark:bg-[#374858] rounded-md"
+    >
       <span>Filter By Region</span>
       <i class="pi pi-angle-down"></i>
     </div>
-    <div class="text-[#000] bg-[hsl(209, 23%, 22%)]">
-      <ul v-for="(reg, index) in region" :key="index">
-        <li>{{ reg }}</li>
-        <!-- <li>America</li>
-        <li>Asia</li>
-        <li>Europe</li>
-        <li>Oceania</li> -->
-      </ul>
-    </div>
+    <transition
+      enter-from-class="opacity-0"
+      enter-to-class="opacity-1"
+      leave-to-class="opacity-0"
+      leave-from-class="opacity-1"
+    >
+      <div v-show="open" class="dark:text-[#000] dark:bg-[#374858] rounded-md">
+        <ul v-for="(region, index) in regions" :key="index">
+          <li>{{ region }}</li>
+        </ul>
+      </div>
+    </transition>
   </div>
 </template>
 

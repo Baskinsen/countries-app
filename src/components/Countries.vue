@@ -2,7 +2,7 @@
   <div
     v-for="(country, index) in countries"
     :key="index"
-    class="w-full gird grid-cols-[25%_25%_25%_25%] text-white"
+    class="w-full text-white"
   >
     <router-link to="/:id">
       <div class="cursor-pointer">

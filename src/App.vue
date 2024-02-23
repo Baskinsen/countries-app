@@ -5,15 +5,7 @@ export default {
   components: {
     Header,
   },
-  data() {
-    return { isDarkMode: false };
-  },
-  methods: {
-    toggleDarkMode() {
-      this.isDarkMode = !this.isDarkMode;
-      document.documentElement.classList.toggle("dark", this.isDarkMode);
-    },
-  },
+
 };
 </script>
 
@@ -23,7 +15,6 @@ export default {
 </template>
 
 <style scoped>
-
 /* nav {
   width: 100%;
   font-size: 12px;
