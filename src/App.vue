@@ -1,24 +1,30 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
+<script>
+import { RouterLink, RouterView } from "vue-router";
+import Header from "./components/Header.vue";
+export default {
+  components: {
+    Header,
+  },
+  data() {
+    return { isDarkMode: false };
+  },
+  methods: {
+    toggleDarkMode() {
+      this.isDarkMode = !this.isDarkMode;
+      document.documentElement.classList.toggle("dark", this.isDarkMode);
+    },
+  },
+};
 </script>
 
-<template>
-
+<template :class="{ dark: isDarkMode }">
+  <Header />
   <RouterView />
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
+/* nav {
   width: 100%;
   font-size: 12px;
   text-align: center;
@@ -68,5 +74,5 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
-}
+} */
 </style>
