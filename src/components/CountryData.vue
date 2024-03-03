@@ -1,5 +1,5 @@
 <template>
-  <div v-if="countryData" class="dark:bg-[#202C37] px-5 md:px-20 lg:px-20">
+  <div v-if="countryData" class="dark:bg-[#202C37] px-5 py-5 md:px-20 lg:px-20">
     <button
       @click="goBack"
       class="dark:bg-[#374858] dark:text-white shadow-sm shadow-slate-700 rounded-md py-2 px-10 flex gap-3 justify-between items-center"
@@ -85,15 +85,17 @@
             </li>
           </ul>
         </div>
-        <div class="lg:mt-10 md:flex lg:flex gap-2">
+        <div class="lg:mt-10 md:flex lg:flex md:gap-5 lg:gap-2">
           <span class="font-semibold">Border Countries: </span>
-          <ul v-for="(border, index) in neighbs" :key="index" class="flex">
-            <li
-              class="py-1 px-3 dark:bg-[#374858] dark:text-slate-300 rounded-sm shadow-sm shadow-slate-400 text-sm"
-            >
-              {{ border }}
-            </li>
-          </ul>
+          <div class="mt-5 md:mt-0 lg:mt-0 flex flex-wrap gap-3">
+            <ul v-for="(border, index) in neighbs" :key="index">
+              <li
+                class="py-1 px-3 dark:bg-[#374858] dark:text-slate-300 rounded-sm shadow-sm shadow-slate-500 text-sm"
+              >
+                {{ border }}
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
