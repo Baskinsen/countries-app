@@ -1,13 +1,13 @@
 <template>
-  <div v-if="countryData" class="px-5 md:px-20 lg:px-20">
+  <div v-if="countryData" class="dark:bg-[#202C37] px-5 md:px-20 lg:px-20">
     <button
       @click="goBack"
-      class="shadow-md shadow-slate-400 rounded-md py-3 px-10 flex gap-3 justify-between items-center"
+      class="dark:bg-[#374858] dark:text-white shadow-sm shadow-slate-700 rounded-md py-2 px-10 flex gap-3 justify-between items-center"
     >
       <i class="pi pi-arrow-left"></i>
       <span>Back</span>
     </button>
-    <div class="mt-10 grid lg:grid-cols-[40%_60%] gap-10">
+    <div class="dark:text-white mt-10 grid lg:grid-cols-[40%_60%] gap-10">
       <img
         :src="countryData.flags.svg"
         :alt="countryData.name + 'Flag'"
@@ -19,22 +19,33 @@
           <ul class="grid gap-3 font-semibold">
             <li>
               Native Name:
-              <span class="font-normal">{{ countryData.nativeName }}</span>
+              <span class="font-normal dark:text-slate-300">{{
+                countryData.nativeName
+              }}</span>
             </li>
             <li>
               Population:
-              <span class="font-normal">{{ countryData.population }}</span>
+              <span class="font-normal dark:text-slate-300">{{
+                countryData.population
+              }}</span>
             </li>
             <li>
-              Region: <span class="font-normal">{{ countryData.region }}</span>
+              Region:
+              <span class="font-normal dark:text-slate-300">{{
+                countryData.region
+              }}</span>
             </li>
             <li>
               Sub Region:
-              <span class="font-normal">{{ countryData.subregion }}</span>
+              <span class="font-normal dark:text-slate-300">{{
+                countryData.subregion
+              }}</span>
             </li>
             <li>
               Capital:
-              <span class="font-normal">{{ countryData.capital }}</span>
+              <span class="font-normal dark:text-slate-300">{{
+                countryData.capital
+              }}</span>
             </li>
           </ul>
           <ul class="grid gap-2 font-semibold">
@@ -44,7 +55,9 @@
               class="p-0"
             >
               Top Level Domain:
-              <span class="p-0 font-normal">{{ domain }}</span>
+              <span class="p-0 font-normal dark:text-slate-300">{{
+                domain
+              }}</span>
             </li>
             <li
               v-for="(currency, index) in countryData.currencies"
@@ -52,7 +65,9 @@
               class="p-0"
             >
               Currencies:
-              <span class="p-0 font-normal">{{ currency.name }}</span>
+              <span class="p-0 font-normal dark:text-slate-300">{{
+                currency.name
+              }}</span>
             </li>
             <li class="p-0">
               Languages:
@@ -60,7 +75,9 @@
                 v-for="(language, index) in countryData.languages"
                 :key="index"
               >
-                <span class="p-0 font-normal"> {{ language.name }}</span>
+                <span class="p-0 font-normal dark:text-slate-300">
+                  {{ language.name }}</span
+                >
                 <span v-if="index !== countryData.languages.length - 1"
                   >,
                 </span>
@@ -71,7 +88,9 @@
         <div class="lg:mt-10 md:flex lg:flex gap-2">
           <span class="font-semibold">Border Countries: </span>
           <ul v-for="(border, index) in neighbs" :key="index" class="flex">
-            <li class="py-1 px-3 rounded-sm shadow-sm shadow-slate-400 text-sm">
+            <li
+              class="py-1 px-3 dark:bg-[#374858] dark:text-slate-300 rounded-sm shadow-sm shadow-slate-400 text-sm"
+            >
               {{ border }}
             </li>
           </ul>
