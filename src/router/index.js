@@ -10,10 +10,10 @@ const router = createRouter({
       component: Home,
     },
     {
-      path: '/:id',
-      name: 'CountryData',
-      component: ()=> import('../components/CountryData.vue')
-    }
+      path: "/:id",
+      name: "CountryData",
+      component: () => import("../components/CountryData.vue"),
+    },
   ],
 });
 

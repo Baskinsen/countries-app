@@ -1,69 +1,56 @@
 <script>
-import { RouterLink, RouterView } from "vue-router";
 import Header from "./components/Header.vue";
 export default {
   components: {
     Header,
   },
-
+  data() {
+    return {
+      isDarkMode: false,
+    };
+  },
+  computed: {
+    scrollBarColorClass() {
+      return this.isDarkMode ? "darkScrollBar" : "lightScrollBar";
+    },
+  },
+  beforeMount() {
+    // if (localStorage.getItem("dark") == 'dark') {
+    //   this.isDarkMode
+    // }
+    localStorage.getItem("dark") == "dark" ? this.DarkMode == true : false;
+  },
 };
 </script>
 
-<template :class="{ dark: isDarkMode }">
-  <Header />
-  <RouterView />
+<template
+  :class="{
+    dark: isDarkMode,
+    'light:bg-[#fafafa] dark:bg-[#202C37]': true,
+  }"
+  class="scrollbar"
+>
+  <div :class="[scrollBarColorClass]" class="bg-[#fafafa] dark:bg-[#202C37]">
+    <Header />
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>
-/* nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+.scrollbar::-webkit-scrollbar {
+  width: 12px;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent; /* You can customize this if needed */
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+.dark .scrollbar-dark::-webkit-scrollbar-thumb {
+  background-color: #374858;
+  border-radius: 30px;
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+.light .scrollbar-light::-webkit-scrollbar-thumb {
+  background-color: var(--color-lightScrollbar);
 }
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-} */
 </style>
